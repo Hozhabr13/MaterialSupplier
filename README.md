@@ -25,6 +25,15 @@ This project assists you to create category and subcategory by rest api which  a
       "title": "This is a sabcategory title",
       "parent_id": "" // 75b65ddb-fd51-458f-b349-6a05bd4163df
     }  
+## Get all categories
+
+    Endpoint: localhost://3000/category
+    Method: GET
+
+## Get one category
+
+    Endpoint: localhost://3000/category/{category_id}
+    Method: GET
 
 ## Migration
     npx prisma migrate dev {migration name}  
