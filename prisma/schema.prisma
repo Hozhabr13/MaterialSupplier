@@ -7,16 +7,34 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Category {
-  id            String        @id @default(uuid())
-  title         String
-  parent_id     String
-  subCategories SubCategory[] @relation("Sub Category")
+model Material {
+  id         String                 @id @default(uuid())
+  name       String
+  categoryId String
+  symbol     String
+  supplierId String?
+  suppliers  SuppliersOnMaterials[]
+  stock      Int?
+  Category   Category               @relation(fields: [categoryId], references: [id])
 }
 
-model SubCategory {
-  id        String   @id @default(uuid())
-  title     String
-  parent_id String
-  category  Category @relation("Sub Category", fields: [parent_id], references: [id])
+model Supplier {
+  id       String                 @id @default(uuid())
+  name     String
+  material SuppliersOnMaterials[]
+}
+
+model SuppliersOnMaterials {
+  supplierId String
+  materialId String
+  material   Material  @relation(fields: [materialId], references: [id])
+  supplier   Supplier? @relation(fields: [supplierId], references: [id])
+
+  @@id([materialId, supplierId])
+}
+
+model Category {
+  id       String     @id @default(uuid())
+  name     String
+  Material Material[]
 }

@@ -20,21 +20,8 @@ export class CategoryController {
     return this.categoryService.create(createCategoryDto);
   }
 
-  @Get(':id')
-  findAllCategoryAndSubCategoriesById(@Param('id') id: string) {
-    return this.categoryService.findAllCategoryAndSubCategoriesById(id);
-  }
-
   @Get()
-  findOne() {
-    return this.categoryService.findAllCategoryAndSubCategories();
-  }
-
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateCategoryDto: UpdateCategoryDto,
-  ) {
-    return this.categoryService.update(id, updateCategoryDto);
+  findAll() {
+    return this.categoryService.findAll();
   }
 }

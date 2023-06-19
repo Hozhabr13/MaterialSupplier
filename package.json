@@ -1,5 +1,5 @@
 {
-  "name": "category",
+  "name": "material",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "migrate": "npx prisma migrate dev @npm_package_config_name",
+    "migrate": "npx prisma migrate dev @npm_config_name",
     "generate": "npx prisma generate",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -29,7 +29,8 @@
     "@prisma/client": "^4.15.0",
     "class-validator": "^0.14.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.16"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
